@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+body{
+	max-width:960px;
+	margin:auto;
+}
+#bodyer{
+	min-height:500px;
+}

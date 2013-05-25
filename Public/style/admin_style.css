@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+body{
+}
+#bodyer{
+	min-height:500px;
+}
+
+#nav .navbar-inner{
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
