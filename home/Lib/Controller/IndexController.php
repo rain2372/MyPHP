@@ -1,7 +1,12 @@
 <?php
 class IndexController extends CommonController
 {
-	public function index($page=null)
+	public function index()
+	{
+		$this->page();
+	}
+	
+	public function page($page=null)
 	{		
 		$this->getHeader();
 		$Post = M('Post');

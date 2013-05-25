@@ -68,12 +68,4 @@ class Db
 		}
 		return $array;
 	}
-	
-	public function find($sql)
-	{
-		$result = $this->db->query($sql);
-		$result  = $result->fetch_array();
-		return $result;
-	}		
-	
 }

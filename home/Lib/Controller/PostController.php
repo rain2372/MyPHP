@@ -65,7 +65,8 @@ class PostController extends CommonController
 	public function newpost()
 	{
 		$this->getHeader();
-
+		$Post = M('Post');
+		$Post->select();
 		$this->display('Post/newpost.php');
 	}
 	
@@ -82,8 +83,9 @@ class PostController extends CommonController
 		$Post->pid = null;
 		$Post->title = $_POST['title'];
 		$Post->content = $_POST['content'];
-		$Post->date = time();
-		$Post->cid =$_POST['cid'];
+		$Post->tag =$_POST['tag'];
+		$Post->pdate = time();
+		
 	
 		$result = $Post->add();
 	
@@ -116,7 +118,8 @@ class PostController extends CommonController
 		$this->getHeader();
 	
 		$Post = M('Post');
-		$post = $Post->find("pid=$id");
+		$post = $Post->where("`pid`=$id")->select();
+		
 		$this->assign('post', $post);
 	
 		$this->display('Post/edit.php');

@@ -82,7 +82,7 @@ class Model
 			
 			$sql .= ")";
 		}
-		$sql;
+		echo $sql;
 		$result = self::$db->insert($sql);
 		if($result)
 		{
@@ -148,21 +148,4 @@ class Model
 			return false;
 		}
 	}
-	
-	public function find($field)
-	{
-		$sql ="SELECT * FROM `$this->table`";
-		$sql .= " WHERE $field";
-		$result = self::$db->find($sql);
-		
-		if($result)
-		{
-			return $result;
-		}
-		else
-		{
-			return false;
-		}
-	}
-	
 }

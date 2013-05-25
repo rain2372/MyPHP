@@ -6,15 +6,18 @@ class PostModel extends Model
 	public $pid;
 	public $title;
 	public $content;
-	public $date;
-	public $cid;
+	public $tag;
+	public $uid;
+	public $pdate;
 	
 	protected $data = array(
 			'pid' => 'pid',
 			'title' => 'title',
 			'content' => 'content',
-			'date' => 'date',
-			'cid' => 'cid',
+			'tag' => 'tag',
+			'uid' => 'uid',
+			'pdate' => 'pdate',
+			
 	);
 	
 	public function __construct($table)
