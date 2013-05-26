@@ -4,6 +4,7 @@ $(document).ready(function(){
 		if(data!='')
 		{
 			$(".admin").show();
+			$(".home").hide();
 		}
 	});
 	$("#new").click(function(){
