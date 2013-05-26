@@ -4,26 +4,17 @@ class PostController extends CommonController
 	public function index($number)
 	{
 		$this->getHeader();
-		
-		$Post = M('Post');
-		
-		$this->assign('page',$number);
-		
-		$post = $Post->find("pid=$number");
-		
-		$this->assign('titlenow',$post['title']);
-		
+		$Post = M('Post');	
+		$post = $Post->where("`pid`=$number")->find();
 		$this->assign('post', $post);
 		
 		$this->getSider();
-		
 		$this->display('Post/index.php');
 		
 	}
 	
 	public function search($page=null)
 	{
-		
 		$this->getHeader();
 		$this->assign('titlenow','搜索');
 		
@@ -65,20 +56,22 @@ class PostController extends CommonController
 	public function newpost()
 	{
 		$this->getHeader();
+		$this->checkPower();
+		
+		$this->getHeader();
 		$Post = M('Post');
 		$Post->select();
+		
+		$this->getSider();
+		
 		$this->display('Post/newpost.php');
 	}
 	
 	public function add()
 	{
+		$this->checkPower();
+		
 		$Post = M('Post');
-		//$data['pid'] = null;
-		//$data['title'] = $_POST['title'];
-		//$data['content'] = $_POST['content'];
-		//$data['date'] = time();
-		//$data['cid'] = $_POST['cid'];
-		//$result = $Post->add($data);
 	
 		$Post->pid = null;
 		$Post->title = $_POST['title'];
@@ -101,11 +94,13 @@ class PostController extends CommonController
 	
 	public function del($id)
 	{
+		$this->checkPower();
+		
 		$Post = M('Post');
 		$result = $Post->delete($id);
 		if($result)
 		{
-			$this->success('成功');
+			$this->success('成功',getUrl('Index','index'));
 		}
 		else
 		{
@@ -116,25 +111,28 @@ class PostController extends CommonController
 	public function edit($id)
 	{
 		$this->getHeader();
-	
+		$this->checkPower();
 		$Post = M('Post');
-		$post = $Post->where("`pid`=$id")->select();
+		$post = $Post->where("`pid`=$id")->find();
 		
 		$this->assign('post', $post);
-	
+		
+		$this->getSider();
+		
 		$this->display('Post/edit.php');
 	}
 	
 	public function update()
 	{
+		$this->checkPower();
 		$Post = M('Post');
 		$Post->id = $_POST['pid'];
-		$data['title'] = $_POST['title'];
-		$data['content'] = $_POST['content'];
-		$data['date'] = time();
-		$data['cid'] = 1;
+		$Post->title = $_POST['title'];
+		$Post->content = $_POST['content'];
+		$Post->tag =$_POST['tag'];
+		$Post->pdate = time();
 	
-		$result = $Post->update($data);
+		$result = $Post->update();
 	
 		if($result)
 		{

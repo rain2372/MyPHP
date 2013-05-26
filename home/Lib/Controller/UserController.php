@@ -3,6 +3,7 @@ class UserController extends CommonController
 {
 	public function index()
 	{
+		$this->checkPower();
 		$this->getHeader();
 		
 		$User = M('User');
@@ -15,6 +16,7 @@ class UserController extends CommonController
 	
 	public function update()
 	{
+		$this->checkPower();
 		$User = M('User');
 		
 		$User->id = $_POST['uid'];	//修改字段主键的值

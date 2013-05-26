@@ -4,15 +4,14 @@ class CommonController extends Controller
 	public function __construct()
 	{
 		parent::__construct();
-		//$this->checkPower();
 	}
 	
 	public function checkPower()
 	{
 		if(!isset($_SESSION['username']))
 		{
-			$this->error('您无权访问该页，请先登录',ROOT.'index.php?/Login/index');
-			exit();
+			//$this->error('您无权访问该页，请先登录',createUrl('Index','index'));
+			//exit();
 		}
 	}
 	

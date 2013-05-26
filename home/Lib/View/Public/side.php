@@ -4,4 +4,17 @@
         	<input class="span12" type="search" name="search-key" placeholder="搜索">
         </form>
     </div>
+    <div class="newpost">
+    	<ul class="nav nav-list">
+    		<li class="nav-header">最新文章</li>
+    		<li class="active"><a href="">New Post</a></li>
+        	<?php foreach($newpost as $post){;?>
+        	<li><a href="<?php createUrl('Post','index',$post['pid']);?>"><?php echo $post['title'];?></a></li>
+            <?php }?>
+        </ul>
+    </div>
+    <div class="login">
+    	<button id="" class="btn">登录</button>
+    	<button id="" class="btn">退出</button>
+    </div>
 </div>

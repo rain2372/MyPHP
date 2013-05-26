@@ -18,10 +18,7 @@
     	<h1><a href="<?php echo __APP__;?>"><?php echo $title;?></a><small>a simple blog</small></h1>
     </div>
     <div class="span4">
-    	<div id="control">
-				<button id="newpost">写日志</button>
-				<button id="login">登录</button>
-        </div>
+    	
     </div>
 </div>
 

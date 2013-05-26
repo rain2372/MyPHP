@@ -1,4 +1,4 @@
-<div id="reg" class="span4 offset2">
+<div id="login" class="span4">
     <form action="<?php createUrl('Login','login')?>" method="post">
     	<label for="username">用户名</label>
         <input type="text" id="username" name="username" placeholder="username">

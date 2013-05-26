@@ -2,14 +2,19 @@
 <div id="bodyer" class="container-fluid">
 	<div class="row-fluid">
         <div id="main" class="span8">
+        	<div id="new" class="input-append">
+        		<input class="input-small" type="text" name="title" placeholder="写日志">
+        		<span class="add-on"><i class="icon-pencil"></i></span>
+        	</div>
 	        <div class="post">
 	            <?php foreach($post as $p){;?>
-					<div class="artical">
+					<div class="article">
 						<hgroup>
-							<h3><a href="<?php createUrl('Post','index',$p['pid']);?>"><?php echo $p['title']?></a></h3>
+							<h3><a href="<?php createUrl('Post','index',$p['pid']) ?>"><?php echo $p['title']?></a></h3>
 							<h4><i class="icon-calendar"></i><?php echo date('Y-m-d',$p['pdate']);?></h4>
 						</hgroup>
-						<p><?php echo cutstr($p['content']);?>……<a class="btn btn-mini" href="<?php createUrl('Post','index',$p['pid']);?>"><i class="icon-hand-right"></i></a></p>			
+						<p><?php echo cutstr($p['content']);?>……</p>
+						<p><i class="icon-tags"></i><a href=""> <?php echo $p['tag']?></a></p>			
 						<hr>
 					</div>
 				<?php }?>
