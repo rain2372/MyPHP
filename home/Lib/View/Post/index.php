@@ -7,8 +7,10 @@
 					<h3><a href="<?php createUrl('Post','index',$post['pid']) ?>"><?php echo $post['title']?></a></h3>
 					<h4></h4>
 				</hgroup>
-				<a href="<?php createUrl('Post','edit',$post['pid']) ?>">编辑|</a>
-				<a href="<?php createUrl('Post','del',$post['pid']) ?>">删除</a>
+				<span class="admin">
+					<a href="<?php createUrl('Post','edit',$post['pid']) ?>">编辑|</a>
+					<a href="<?php createUrl('Post','del',$post['pid']) ?>">删除</a>
+				</span>
 				<p><?php echo $post['content'];?></p>			
 				<hr>
 			</div>

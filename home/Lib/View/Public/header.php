@@ -10,7 +10,6 @@
 <script src="<?php echo PUBLIC_PATH ?>Jquery/jquery-1.9.1.min.js"></script>
 <script src="<?php echo PUBLIC_PATH ?>bootstrap/js/bootstrap.min.js"></script>
 <script src="<?php echo PUBLIC_PATH ?>js/my.js"></script>
-
 </head>
 <body>
 <div id="header" class="row-fluid page-header">
@@ -18,7 +17,7 @@
     	<h1><a href="<?php echo __APP__;?>"><?php echo $title;?></a><small>a simple blog</small></h1>
     </div>
     <div class="span4">
-    	
+    	<button class="admin"></button>
     </div>
 </div>
 

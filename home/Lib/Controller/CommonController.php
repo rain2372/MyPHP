@@ -10,8 +10,8 @@ class CommonController extends Controller
 	{
 		if(!isset($_SESSION['username']))
 		{
-			//$this->error('您无权访问该页，请先登录',createUrl('Index','index'));
-			//exit();
+			$this->error('您无权访问该页，请先登录',getUrl('Index','index'));
+			exit();
 		}
 	}
 	

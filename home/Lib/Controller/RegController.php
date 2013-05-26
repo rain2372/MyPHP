@@ -14,15 +14,14 @@ class RegController extends CommonController
 	
 	public function reg()
 	{
-		$data['uid'] = '';
-		$data['username'] = $_POST['username'];
-		$data['password'] = md5($_POST['password']);
-		$re['repassword'] = md5($_POST['repassword']);
-		if(equal($data['password'],$re["repassword"]))
+		$User = M('User');
+		$User->uid = '';
+		$User->username = $_POST['username'];
+		$User->pwd = md5($_POST['password']);
+		$User->rpwd = md5($_POST['repassword']);
+		if(equal($User->pwd,$User->rpwd))
 		{
-			$User = M('User');
-			
-			$result = $User->add($data);
+			$result = $User->add();
 			if($result)
 			{
 				$this->success('注册成功');
@@ -35,9 +34,6 @@ class RegController extends CommonController
 		else 
 		{
 			echo '密码必须相同';
-		}
-		
+		}	
 	}
-	
-	
 }

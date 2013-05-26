@@ -14,17 +14,19 @@ class LoginController extends CommonController
 	
 	public function login()
 	{
-		$data['username'] = $_POST['username'];
-		$data['password'] = md5($_POST['password']);
-		
 		$User = M('User');
-		$user = $User->find("`username` = '{$data['username']}'");
 		
-		if($user['password'] == $data['password'])
+		$User->username = $_POST['username'];
+		$User->pwd = md5($_POST['password']);
+		
+		
+		$user = $User->where("`username` = '$User->username'")->find();
+		
+		if($user['pwd'] == $User->pwd)
 		{
 			$_SESSION['uid'] = $user['uid'];
-			$_SESSION['username'] = $data['username'];
-			$_SESSION['password'] = $data['password'];
+			$_SESSION['username'] = $User->username;
+			$_SESSION['password'] = $User->pwd;
 			
 			if($_SESSION['username'])
 			{
@@ -38,10 +40,19 @@ class LoginController extends CommonController
 		else 
 		{
 			$this->error('用户名或密码错误');
+		}	
+	}
+	
+	public function isLogin()
+	{
+		if(isset($_SESSION['username']))
+		{
+			echo $_SESSION['username'];
 		}
-		
-		
-		
+		else 
+		{
+			return false;
+		}
 	}
 	
 	public function out()

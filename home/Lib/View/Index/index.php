@@ -2,7 +2,7 @@
 <div id="bodyer" class="container-fluid">
 	<div class="row-fluid">
         <div id="main" class="span8">
-        	<div id="new" class="input-append">
+        	<div id="new" class="admin input-append">
         		<input class="input-small" type="text" name="title" placeholder="写日志">
         		<span class="add-on"><i class="icon-pencil"></i></span>
         	</div>

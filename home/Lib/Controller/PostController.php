@@ -6,6 +6,7 @@ class PostController extends CommonController
 		$this->getHeader();
 		$Post = M('Post');	
 		$post = $Post->where("`pid`=$number")->find();
+		$this->assign('titlenow',$post['title']);
 		$this->assign('post', $post);
 		
 		$this->getSider();

@@ -3,6 +3,17 @@ class UserModel extends Model
 {
 	protected $pk = 'uid';
 	
+	public $username;
+	public $pwd;
+	public $email;
+	
+	protected $data = array(
+			'uid' => 'uid',
+			'username' => 'username',
+			'pwd' => 'pwd',
+			'email' => 'email',		
+	);
+	
 	public function __construct($table)
 	{
 		parent::__construct($table);
@@ -16,6 +27,6 @@ class UserModel extends Model
 	
 	public function getUserInfo($username)
 	{
-		return $this->find($username);
+		return $this->where("`username`=$username")->find();
 	}
 }

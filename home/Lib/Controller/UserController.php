@@ -21,14 +21,14 @@ class UserController extends CommonController
 		
 		$User->id = $_POST['uid'];	//修改字段主键的值
 		
-		$data['username'] = $_POST['username'];
+		$User->username = $_POST['username'];
 		if(!empty($_POST['password']))
 		{
-			$data['password'] = md5($_POST['password']);
+			$User->password = md5($_POST['password']);
 		}
-		$data['email'] = $_POST['email'];
+		$User->email = $_POST['email'];
 		
-		$result = $User->update($data);
+		$result = $User->update();
 		
 		if($result)
 		{

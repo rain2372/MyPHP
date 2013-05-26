@@ -110,14 +110,30 @@ class Model
 	
 	public function update($data)
 	{
-		$sql = "UPDATE `$this->table` SET";
-		foreach ($data as $key =>$value)
+		if(!empty($data))
 		{
-			$sql.= " `$key` = '$value',";
+			$sql = "UPDATE `$this->table` SET";
+			foreach ($data as $key =>$value)
+			{
+				$sql.= " `$key` = '$value',";
+			}
+			
+			$sql = rtrim($sql,',');
+			$sql .= " WHERE $this->pk =$this->id";
+			
+			
 		}
-		
-		$sql = rtrim($sql,',');
-		$sql .= " WHERE $this->pk =$this->id";
+		else 
+		{
+			$sql ="UPDATE `$this->table` SET";
+			foreach ($this->data as $key=>$value)
+			{
+				$sql .= "`$key` = '$this->$value',";
+			}
+				
+			$sql = rtrim($sql,',');			
+			$sql .= " WHERE $this->pk =$this->id";
+		}
 		
 		$result = self::$db->update($sql);
 		if($result)
