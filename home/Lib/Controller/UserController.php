@@ -24,7 +24,7 @@ class UserController extends CommonController
 		$User->username = $_POST['username'];
 		if(!empty($_POST['password']))
 		{
-			$User->password = md5($_POST['password']);
+			$User->pwd = md5($_POST['password']);
 		}
 		$User->email = $_POST['email'];
 		

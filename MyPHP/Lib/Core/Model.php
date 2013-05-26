@@ -108,7 +108,7 @@ class Model
 		}
 	}
 	
-	public function update($data)
+	public function update($data=null)
 	{
 		if(!empty($data))
 		{
@@ -128,7 +128,10 @@ class Model
 			$sql ="UPDATE `$this->table` SET";
 			foreach ($this->data as $key=>$value)
 			{
-				$sql .= "`$key` = '$this->$value',";
+				if(!empty($this->$value))
+				{
+					$sql .= "`$key` = '{$this->$value}',";
+				}
 			}
 				
 			$sql = rtrim($sql,',');			

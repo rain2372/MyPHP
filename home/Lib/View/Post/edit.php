@@ -8,6 +8,7 @@
 					<input type="hidden" name="pid" value="<?php echo $post['pid'];?>">
 					<input type="text" class="span12" name="title" value="<?php echo $post['title'];?>"><br>
 					<textarea class="span12" name="content" rows="18" cols="200" ><?php echo $post['content'];?></textarea><br>
+					<input type="text" name="tag" value="<?php echo $post['tag']?>">
 					<script>
 						CKEDITOR.replace('content');
 					</script>
