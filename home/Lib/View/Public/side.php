@@ -4,6 +4,7 @@
         	<input class="span12" type="search" name="search-key" placeholder="搜索">
         </form>
     </div>
+    <hr>
     <div class="newpost">
     	<ul class="nav nav-list">
     		<li class="nav-header">最新文章</li>
@@ -13,6 +14,7 @@
             <?php }?>
         </ul>
     </div>
+    <hr>
     <div class="tag">
     	<ul class="nav nav-list">
     		<li class="nav-header">标签云</li>

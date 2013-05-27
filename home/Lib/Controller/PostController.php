@@ -74,10 +74,10 @@ class PostController extends CommonController
 		
 		$Post = M('Post');
 	
-		$Post->pid = null;
 		$Post->title = $_POST['title'];
 		$Post->content = $_POST['content'];
 		$Post->tag =$_POST['tag'];
+		$Post->uid = 1;
 		$Post->pdate = time();
 		
 	

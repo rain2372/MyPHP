@@ -7,6 +7,9 @@ $(document).ready(function(){
 			$(".home").hide();
 		}
 	});
+	$("login").mouseover(function(){
+		alert('hello');
+	});
 	$("#new").click(function(){
 		$.get("http://localhost/MyPHP/index.php?/Post/newpost", function(data){
 			$("#new").before(data);

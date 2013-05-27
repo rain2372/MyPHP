@@ -67,7 +67,10 @@ class Model
 			$sql ="INSERT INTO `$this->table` (";
 			foreach ($this->data as $key=>$value)
 			{
-				$sql .= "`$key`,";
+				if(!empty($this->$value))
+				{
+					$sql .= "`$key`,";
+				}
 			}
 			
 			$sql = rtrim($sql,',');		//去掉产生的sql语句末尾逗号
@@ -75,12 +78,15 @@ class Model
 			$sql .= ") VALUES (";
 			foreach ($this->data as $key=>$value)
 			{
-				$sql .= "'".$this->$value."'".',';
+				if(!empty($this->$value))
+				{
+					$sql .= "'".$this->$value."'".',';
+				}	
 			}
 				
 			$sql = rtrim($sql,',');		//去除末尾逗号
 			
-			$sql .= ")";
+			echo $sql .= ")";
 		}
 		$result = self::$db->insert($sql);
 		if($result)
