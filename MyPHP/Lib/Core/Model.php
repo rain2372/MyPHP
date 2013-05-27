@@ -86,7 +86,7 @@ class Model
 				
 			$sql = rtrim($sql,',');		//去除末尾逗号
 			
-			echo $sql .= ")";
+			$sql .= ")";
 		}
 		$result = self::$db->insert($sql);
 		if($result)

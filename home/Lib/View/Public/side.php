@@ -19,8 +19,8 @@
     	<ul class="nav nav-list">
     		<li class="nav-header">标签云</li>
     		<li class="active"><a href="">tags</a></li>
-        	<?php foreach($newpost as $post){;?>
-        	<li><a href="<?php createUrl('Post','index',$post['pid']);?>"><?php echo $post['tag'];?></a></li>
+        	<?php foreach($tags as $tag){;?>
+        	<li><a href=""><?php echo $tag?></a></li>
             <?php }?>
         </ul>
     </div>

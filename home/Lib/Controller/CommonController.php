@@ -26,6 +26,18 @@ class CommonController extends Controller
 		$Post->limit(10);
 		$newpost = $Post->select();
 		$this->assign('newpost', $newpost);
+		
+		$tag = '';	
+		foreach($newpost as $post)
+		{
+			$tag .= $post['tag'].',';		//将全部tag组合为一个字符串
+		}
+		
+		$tag = rtrim($tag,',');	
+		$tags = explode(',',$tag);			//打散为数组	
+		$tags = array_unique($tags);		//去除重复标签
+			
+		$this->assign('tags', $tags);
 	}
 	
 	
