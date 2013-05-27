@@ -12,6 +12,7 @@ class IndexController extends CommonController
 		$Post = M('Post');
 		if(isset($page))
 		{
+			//$page = $page-1;
 			if($page<0) $page=0;
 			$Post->limit($page*5,5);
 			$this->assign('page',$page);

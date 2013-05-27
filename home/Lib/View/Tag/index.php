@@ -9,7 +9,10 @@
 	        <div class="post">
 	            <?php foreach($post as $p){;?>
 					<div class="article">
-						<h3><a href="<?php createUrl('Post','index',$p['pid']) ?>"><?php echo $p['title']?></a></h3>
+						<hgroup>
+							<h3><a href="<?php createUrl('Post','index',$p['pid']) ?>"><?php echo $p['title']?></a></h3>
+							<h4></h4>
+						</hgroup>
 						<p><i class="icon-calendar"></i> <?php echo date('Y-m-d',$p['pdate']);?></p>
 						<p><?php echo cutstr($p['content']);?>……</p>
 						<p><i class="icon-tags"></i>
@@ -23,8 +26,8 @@
 				<div id="pagenav" class="pagination">
 					<ul>
 						<li><a href="<?php createUrl('Index','page',isset($page)? $page-1:0);?>">Prev</a></li>
-						<li><a href="<?php createUrl('Index','page',isset($page)? $page:0);?>"><?php echo isset($page)? $page:0;?></a></li>
-						<li><a href="<?php createUrl('Index','page',isset($page)? $page+1:1);?>">Next</a></li>
+						<li><a href="<?php createUrl('Index','page',isset($page)? $page:1);?>"><?php echo isset($page)? $page:1;?></a></li>
+						<li><a href="<?php createUrl('Index','page',isset($page)? $page+1:2);?>">Next</a></li>
 					</ul>
 				</div>
 			</div>

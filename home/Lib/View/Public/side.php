@@ -7,8 +7,7 @@
     <hr>
     <div class="newpost">
     	<ul class="nav nav-list">
-    		<li class="nav-header">最新文章</li>
-    		<li class="active"><a href="">New Post</a></li>
+    		<li class="nav-header"><i class="icon-th-list"></i> 最新文章</li>
         	<?php foreach($newpost as $post){;?>
         	<li><a href="<?php createUrl('Post','index',$post['pid']);?>"><?php echo $post['title'];?></a></li>
             <?php }?>
@@ -17,10 +16,9 @@
     <hr>
     <div class="tag">
     	<ul class="nav nav-list">
-    		<li class="nav-header">标签云</li>
-    		<li class="active"><a href="">tags</a></li>
+    		<li class="nav-header"><i class="icon-tags"></i> 标签墙</li>
         	<?php foreach($tags as $tag){;?>
-        	<li><a href=""><?php echo $tag?></a></li>
+        	<a href="<?php createUrl('Tag','index',$tag)?>"><?php echo $tag?></a>
             <?php }?>
         </ul>
     </div>

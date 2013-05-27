@@ -8,7 +8,7 @@ class PostController extends CommonController
 		$post = $Post->where("`pid`=$number")->find();
 		$this->assign('titlenow',$post['title']);
 		$this->assign('post', $post);
-		
+		$this->assign('page',$number);
 		$this->getSider();
 		$this->display('Post/index.php');
 		
@@ -56,24 +56,16 @@ class PostController extends CommonController
 
 	public function newpost()
 	{
-		$this->getHeader();
 		$this->checkPower();
-		
-		$this->getHeader();
-		$Post = M('Post');
-		$Post->select();
-		
-		$this->getSider();
-		
 		$this->display('Post/newpost.php');
 	}
 	
 	public function add()
-	{
+	{	
 		$this->checkPower();
 		
 		$Post = M('Post');
-	
+		
 		$Post->title = $_POST['title'];
 		$Post->content = $_POST['content'];
 		$Post->tag =$_POST['tag'];

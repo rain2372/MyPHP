@@ -11,3 +11,10 @@ function checkLogin()
 		return false;
 	}
 }
+/*
+ * 获取单篇文章所有标签
+ */
+function getTag($tag)
+{
+	return $tags = explode(',',$tag);
+}
