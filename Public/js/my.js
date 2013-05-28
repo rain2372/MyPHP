@@ -10,11 +10,13 @@ $(document).ready(function(){
 	$(".login").click(function(){
 		$.get("http://localhost/MyPHP/index.php?/Login/index", function(data){
 			$(".search").before(data);
+			$(".login").toggle("slow");
 		});
 	});
 	$(".setting").click(function(){
 		$.get("http://localhost/MyPHP/index.php?/User/index", function(data){
 			$(".search").before(data);
+			$(".setting").toggle("slow");
 		});
 	});
 	$("#new").click(function(){

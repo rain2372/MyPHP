@@ -13,13 +13,8 @@
 </head>
 <body>
 <div id="header" class="row-fluid page-header">
-	<div id="logo" class="span4">
+	<div id="logo" class="span9">
     	<h1><a href="<?php echo __APP__;?>"><?php echo $title;?></a><small>a simple blog</small></h1>
-    </div>
-    <div id="nav" class="span5">
-    	<ul class="nav nav-pills">
-    		<li><a href="<?php echo __APP__;?>" title="首页">首页</a></li>
-    	</ul>
     </div>
     <div id="admin" class="span3">
     	<ul class="nav nav-pills">

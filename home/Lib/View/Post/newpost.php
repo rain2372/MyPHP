@@ -3,7 +3,7 @@
 	<form action="<?php createUrl('Post','add') ?>" method="post">
 		<input type="text" class="span8" name="title" placeholder="输入标题……"><br>
 		<textarea class="span8" name="content" rows="18" cols="180" ></textarea><br>
-		<input type="text" id="tag" class="span4" name="tag" placeholder="填写标签">
+		<input type="text" id="tag" class="span4" name="tag" placeholder="填写标签,多标签用‘,’分隔">
 		<script>
 			CKEDITOR.replace('content');
 		</script>

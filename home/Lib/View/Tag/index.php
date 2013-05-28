@@ -14,6 +14,11 @@
 							<h4></h4>
 						</hgroup>
 						<p><i class="icon-calendar"></i> <?php echo date('Y-m-d',$p['pdate']);?></p>
+						<span class="admin">
+							<a href="<?php createUrl('Post','edit',$p['pid']) ?>">编辑|</a>
+							<a href="<?php createUrl('Post','del',$p['pid']) ?>">删除</a>
+						</span>
+						
 						<p><?php echo cutstr($p['content']);?>……</p>
 						<p><i class="icon-tags"></i>
 							<?php foreach (getTag($p['tag']) as $tag){?>
