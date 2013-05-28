@@ -9,16 +9,17 @@
 	        <div class="post">
 	            <?php foreach($post as $p){;?>
 					<div class="article">
-						<hgroup>
-							<h3><a href="<?php createUrl('Post','index',$p['pid']) ?>"><?php echo $p['title']?></a></h3>
-							<h4></h4>
-						</hgroup>
+						<div class="span12">
+							<hgroup class="span8">
+								<h3><a href="<?php createUrl('Post','index',$p['pid']) ?>"><?php echo $p['title']?></a></h3>
+								<h4></h4>
+							</hgroup>
+							<span class="admin span4">
+								<a href="<?php createUrl('Post','edit',$p['pid'])?>" title="编辑"><i class="icon-edit"></i></a>&nbsp|&nbsp
+								<a href="<?php createUrl('Post','del',$p['pid'])?>" title="删除"><i class="icon-trash"></i></a>
+							</span>
+						</div>
 						<p><i class="icon-calendar"></i> <?php echo date('Y-m-d',$p['pdate']);?></p>
-						<span class="admin">
-							<a href="<?php createUrl('Post','edit',$p['pid']) ?>">编辑|</a>
-							<a href="<?php createUrl('Post','del',$p['pid']) ?>">删除</a>
-						</span>
-						
 						<p><?php echo cutstr($p['content']);?>……</p>
 						<p><i class="icon-tags"></i>
 							<?php foreach (getTag($p['tag']) as $tag){?>

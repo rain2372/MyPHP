@@ -3,15 +3,18 @@
 	<div class="row-fluid">
         <div id="main" class="span8">
         	<div class="artical">
-				<hgroup>
-					<h3><a href="<?php createUrl('Post','index',$post['pid']) ?>"><?php echo $post['title']?></a></h3>
-					<h4></h4>
-				</hgroup>
+        		<div class="span12">
+					<hgroup class="span8">
+						<h3><a href="<?php createUrl('Post','index',$post['pid']) ?>"><?php echo $post['title']?></a></h3>
+						<h4></h4>
+					</hgroup>
+					<span class="admin span4">
+						<a href="<?php createUrl('Post','edit',$post['pid'])?>" title="编辑"><i class="icon-edit"></i></a>&nbsp|&nbsp
+						<a href="<?php createUrl('Post','del',$post['pid'])?>" title="删除"><i class="icon-trash"></i></a>
+					</span>
+				</div>
 				<p><i class="icon-calendar"></i> <?php echo date('Y-m-d',$post['pdate']);?></p>
-				<span class="admin">
-					<a href="<?php createUrl('Post','edit',$post['pid']) ?>">编辑|</a>
-					<a href="<?php createUrl('Post','del',$post['pid']) ?>">删除</a>
-				</span>
+				
 				<p><?php echo $post['content'];?></p>
 				<p><i class="icon-tags"></i>
 					<?php foreach (getTag($post['tag']) as $tag){?>

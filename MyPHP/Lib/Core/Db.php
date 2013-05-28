@@ -59,7 +59,7 @@ class Db
 		$number = $result->num_rows;
 		if($number<1)
 		{
-			return array(null);	
+			return array(null);
 		}
 		$array = null;
 		while($row = $result->fetch_array())

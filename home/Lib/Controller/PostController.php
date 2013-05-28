@@ -45,8 +45,7 @@ class PostController extends CommonController
 			$Post->limit(5);
 		}
 		$Post->where("`title` LIKE '%$search_key%' OR `content` LIKE '%$search_key%'");
-		
-		$post = $Post->select();	
+		$post = $Post->select();
 		$this->assign('post', $post);
 		
 		$this->getSider();
@@ -72,7 +71,6 @@ class PostController extends CommonController
 		$Post->uid = 1;
 		$Post->pdate = time();
 		
-	
 		$result = $Post->add();
 	
 		if($result)
@@ -93,11 +91,11 @@ class PostController extends CommonController
 		$result = $Post->delete($id);
 		if($result)
 		{
-			$this->success('成功',getUrl('Index','index'));
+			$this->success('删除成功',getUrl('Index','index'));
 		}
 		else
 		{
-			$this->error('失败');
+			$this->error('删除失败');
 		}
 	}
 	

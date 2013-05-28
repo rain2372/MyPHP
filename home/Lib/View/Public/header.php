@@ -8,7 +8,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="<?php echo PUBLIC_PATH ?>bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 <script src="<?php echo PUBLIC_PATH ?>Jquery/jquery-1.9.1.min.js"></script>
-<script src="<?php echo PUBLIC_PATH ?>bootstrap/js/bootstrap.min.js"></script>
 <script src="<?php echo PUBLIC_PATH ?>js/my.js"></script>
 </head>
 <body>

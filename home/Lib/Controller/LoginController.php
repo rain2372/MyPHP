@@ -3,12 +3,6 @@ class LoginController extends CommonController
 {
 	public function index()
 	{
-		$this->getHeader();
-		
-		$this->assign('titlenow','登陆');
-	
-		$this->getSider();
-			
 		$this->display('Public/login.php');
 	}
 	
