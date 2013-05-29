@@ -5,7 +5,9 @@ class Db
 	
 	public function __construct()
 	{
-		$this->db = @new mysqli(C('DB')['HOST'],C('DB')['USER'],C('DB')['PWD'],C('DB')['DATABASE']);
+		$config = C('DB');			//获取数据库配置
+		
+		$this->db = @new mysqli($config['HOST'],$config['USER'],$config['PWD'],$config['DATABASE']);
 		if($this->db->connect_errno)
 		{
 			echo $this->db->connect_errno;
