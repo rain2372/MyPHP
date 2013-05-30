@@ -12,9 +12,16 @@ class IndexController extends CommonController
 		$Post = M('Post');
 		if(isset($page))
 		{
-			if($page<0) $page=0;
+			if($page<1)
+			{
+				$page=0;
+			}
+			else 
+			{
+				$page = $page - 1;
+			}
 			$Post->limit($page*5,5);
-			$this->assign('page',$page);
+			$this->assign('page',$page+1);
 		}	
 		else 
 		{
@@ -26,18 +33,12 @@ class IndexController extends CommonController
 		}
 		catch (DbException $e)
 		{
+			//数据库中没有内容时返回的值
 			$post = array(
-						array(
-								'pid' => '1',
-								'title' => '没有找到任何内容',
-								'content' => '',
-								'tag' => '',
-								'uid' => null,
-								'pdate' => null,
-													
-				),
+				$Post->dbarray,						
 			);
 			
+			$this->assign('page', $page);			//页码不能增大		
 		}	
 		$this->assign('post', $post);
 		$this->getSider();

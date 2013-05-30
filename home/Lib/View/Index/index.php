@@ -22,9 +22,9 @@
 				<?php }?>
 				<div id="pagenav" class="pagination">
 					<ul>
-						<li><a href="<?php createUrl('Index','page',isset($page)? $page-1:0);?>">Prev</a></li>
-						<li><a href="<?php createUrl('Index','page',isset($page)? $page:0);?>"><?php echo isset($page)? $page:0;?></a></li>
-						<li><a href="<?php createUrl('Index','page',isset($page)? $page+1:1);?>">Next</a></li>
+						<li><a href="<?php createUrl('Index','page',isset($page)? $page-1:1);?>">Prev</a></li>
+						<li><a href="<?php createUrl('Index','page',isset($page)? $page:1);?>"><?php echo isset($page)? $page:1;?></a></li>
+						<li><a href="<?php createUrl('Index','page',isset($page)? $page+1:2);?>">Next</a></li>
 					</ul>
 				</div>
 			</div>

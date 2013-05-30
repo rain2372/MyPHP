@@ -10,6 +10,7 @@ class PostModel extends Model
 	public $uid;
 	public $pdate;
 	
+	//对象关系映射
 	protected $data = array(
 			'pid' => 'pid',
 			'title' => 'title',
@@ -18,6 +19,16 @@ class PostModel extends Model
 			'uid' => 'uid',
 			'pdate' => 'pdate',
 			
+	);
+	
+	//当数据库无数据时默认显示的值
+	public $dbarray = array(
+			'pid' => '1',
+			'title' => '没有找到任何内容',
+			'content' => '',
+			'tag' => '',
+			'uid' => null,
+			'pdate' => null,
 	);
 	
 	public function __construct($table)
