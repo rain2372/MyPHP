@@ -12,7 +12,6 @@ class IndexController extends CommonController
 		$Post = M('Post');
 		if(isset($page))
 		{
-			//$page = $page-1;
 			if($page<0) $page=0;
 			$Post->limit($page*5,5);
 			$this->assign('page',$page);
@@ -21,12 +20,27 @@ class IndexController extends CommonController
 		{
 			$Post->limit(5);
 		}
-		
-		$post = $Post->select();	
-		$this->assign('post', $post);
-		
-		$this->getSider();
+		try
+		{
+			$post = $Post->select();
+		}
+		catch (DbException $e)
+		{
+			$post = array(
+						array(
+								'pid' => '1',
+								'title' => '没有找到任何内容',
+								'content' => '',
+								'tag' => '',
+								'uid' => null,
+								'pdate' => null,
+													
+				),
+			);
 			
+		}	
+		$this->assign('post', $post);
+		$this->getSider();
 		$this->display('Index/index.php');
 		
 	}

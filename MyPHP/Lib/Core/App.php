@@ -8,7 +8,7 @@ class App
 		{
 			$dispatcher = new Dispatcher();
 		}
-		catch(Exception $e)
+		catch(UrlException $e)
 		{
 			echo '您访问的页面不存在！';
 		}

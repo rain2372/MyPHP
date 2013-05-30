@@ -61,7 +61,7 @@ class Db
 		$number = $result->num_rows;
 		if($number<1)
 		{
-			return array(null);
+			return false;
 		}
 		$array = null;
 		while($row = $result->fetch_array())
@@ -74,6 +74,12 @@ class Db
 	public function find($sql)
 	{
 		$result = $this->db->query($sql);
+		
+		$number = $result->num_rows;
+		if($number<1)
+		{
+			return false;
+		}
 		$result  = $result->fetch_array();
 		return $result;
 	}

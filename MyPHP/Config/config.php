@@ -9,6 +9,9 @@ define('CORE_PATH', MYPHP_PATH.'Lib/Core/');
 //定义扩展类目录
 define('EXTEND_PATH', MYPHP_PATH.'Lib/Extend/');
 
+//定义异常扩展目录
+define('EXCEPTION_PATH', MYPHP_PATH.'Lib/Exception/');
+
 //项目配置文件路径
 define('APP_CONFIG_PATH',APP_PATH.'Config/config.php');
 

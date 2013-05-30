@@ -24,7 +24,7 @@ class Dispatcher
 		}
 		else 
 		{
-			throw new Exception("页面访问出错");
+			throw new UrlException("页面访问出错");
 		}
 	}
 	

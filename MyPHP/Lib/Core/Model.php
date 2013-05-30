@@ -169,7 +169,8 @@ class Model
 		}
 		else 
 		{
-			return false;
+			
+			throw new DbException('没有找到数据');
 		}
 	}
 	
@@ -182,10 +183,6 @@ class Model
 		if($result)
 		{
 			return $result;
-		}
-		else
-		{
-			return false;
 		}
 	}
 }
