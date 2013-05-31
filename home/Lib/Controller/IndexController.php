@@ -14,7 +14,7 @@ class IndexController extends CommonController
 		{
 			if($page<1)
 			{
-				$page=0;
+				$page=1;
 			}
 			else 
 			{

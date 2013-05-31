@@ -14,6 +14,16 @@
 					</div>
 				<?php }?>
 			</div>
+			<div id="pagenav">
+					<ul class="pager">
+						<li class="previous">
+							<a href="<?php createUrl('Post','index',isset($page)? $page-1:1);?>">Prev</a>
+						</li>
+ 						<li class="next">
+ 							<a href="<?php createUrl('Post','index',isset($page)? $page+1:2);?>">Next</a>
+ 						</li>
+					</ul>
+			</div>
         </div>
        	<?php include_once 'Public/side.php';?>
     </div>

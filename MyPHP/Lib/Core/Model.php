@@ -170,7 +170,7 @@ class Model
 		else 
 		{
 			
-			throw new DbException('没有找到数据');
+			throw new DbException('nothing find');
 		}
 	}
 	
@@ -183,6 +183,10 @@ class Model
 		if($result)
 		{
 			return $result;
+		}
+		else 
+		{
+			throw new DbException('nothing find');
 		}
 	}
 }

@@ -1,14 +1,40 @@
 <?php
 class PostController extends CommonController
 {
-	public function index($number)
+	public function index($page=null)
 	{
 		$this->getHeader();
 		$Post = M('Post');	
-		$post = $Post->where("`pid`=$number")->find();
+		
+		if(isset($page))
+		{
+			if($page<1)
+			{
+				$page = 1;
+			}
+			else 
+			{
+				$page = $page - 1;
+			}
+			$this->assign('page',$page+1);
+		}	
+		else 
+		{
+			$this->assign('page', 1);
+		}
+		
+		try 
+		{
+			$post = $Post->where("`pid`=$page")->find();
+		}
+		catch(DbException $e)
+		{
+			$post = $Post->dbarray;
+			$this->assign('page', $page-1);		//阻止页码继续增大
+		}
 		$this->assign('titlenow',$post['title']);
 		$this->assign('post', $post);
-		$this->assign('page',$number);
+		
 		$this->getSider();
 		$this->display('Post/index.php');
 		
@@ -45,7 +71,16 @@ class PostController extends CommonController
 			$Post->limit(5);
 		}
 		$Post->where("`title` LIKE '%$search_key%' OR `content` LIKE '%$search_key%'");
+		try 
+		{
 		$post = $Post->select();
+		}
+		catch(DbException $e)
+		{
+			$post = array(
+					$Post->dbarray,
+			);
+		}
 		$this->assign('post', $post);
 		
 		$this->getSider();
