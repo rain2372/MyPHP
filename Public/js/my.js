@@ -1,6 +1,11 @@
 $(document).ready(function(){
-	$(".admin").hide();	
-	$.get("http://localhost/MyPHP/index.php?/Login/isLogin", function(data){
+	
+	//设置网站地址
+	var host = 'http://localhost/MyPHP/';
+	
+	$(".admin").hide();		//所有'.admin'隐藏
+	
+	$.get(host+"index.php?/Login/isLogin", function(data){
 		if(data!='')
 		{
 			$(".admin").show();
@@ -8,19 +13,19 @@ $(document).ready(function(){
 		}
 	});
 	$(".login").click(function(){
-		$.get("http://localhost/MyPHP/index.php?/Login/index", function(data){
+		$.get(host+"index.php?/Login/index", function(data){
 			$(".search").before(data);
 			$(".login").toggle("slow");
 		});
 	});
 	$(".setting").click(function(){
-		$.get("http://localhost/MyPHP/index.php?/User/index", function(data){
+		$.get(host+"index.php?/User/index", function(data){
 			$(".search").before(data);
 			$(".setting").toggle("slow");
 		});
 	});
 	$("#new").click(function(){
-		$.get("http://localhost/MyPHP/index.php?/Post/newpost", function(data){
+		$.get(host+"index.php?/Post/newpost", function(data){
 			$("#new").before(data);
 			$("#new").hide();
 		});

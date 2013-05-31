@@ -42,7 +42,7 @@ class CommonController extends Controller
 		$Post = M('Post');
 		try 
 		{
-			$post = $Post->select();
+			$post = $Post->limit(0,100)->select();
 		}
 		catch(DbException $e)
 		{

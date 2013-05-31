@@ -8,7 +8,7 @@ class PostController extends CommonController
 		
 		if(isset($page))
 		{
-			if($page<1)
+			if($page<2)
 			{
 				$page = 1;
 			}
@@ -30,7 +30,7 @@ class PostController extends CommonController
 		catch(DbException $e)
 		{
 			$post = $Post->dbarray;
-			$this->assign('page', $page-1);		//阻止页码继续增大
+			$this->assign('page', $page);		//阻止页码继续增大
 		}
 		$this->assign('titlenow',$post['title']);
 		$this->assign('post', $post);
@@ -73,13 +73,14 @@ class PostController extends CommonController
 		$Post->where("`title` LIKE '%$search_key%' OR `content` LIKE '%$search_key%'");
 		try 
 		{
-		$post = $Post->select();
+			$post = $Post->select();
 		}
 		catch(DbException $e)
 		{
 			$post = array(
 					$Post->dbarray,
 			);
+			$this->assign('page', $page-1);
 		}
 		$this->assign('post', $post);
 		
