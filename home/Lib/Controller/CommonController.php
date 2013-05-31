@@ -26,14 +26,28 @@ class CommonController extends Controller
 	{
 		$Post = M('Post');
 		$Post->limit(10);
-		$newpost = $Post->select();
+		try 
+		{
+			$newpost = $Post->select();
+		}
+		catch(DbException $e)
+		{
+			$newpost = array(null);
+		}
 		$this->assign('newpost', $newpost);		
 	}
 	
 	public function getTags()
 	{
 		$Post = M('Post');
-		$post = $Post->select();
+		try 
+		{
+			$post = $Post->select();
+		}
+		catch(DbException $e)
+		{
+			$post = array(null);
+		}
 	
 		$tag = '';
 		foreach($post as $post)
