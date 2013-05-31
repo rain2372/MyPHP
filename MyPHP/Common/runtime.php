@@ -29,5 +29,4 @@ define('PUBLIC_PATH', ROOT.C('PUBLIC_PATH'));
 
 //定义当前项目根目录，不含域名
 define('__APP__', Url::getScriptName());
-
 App::run();
