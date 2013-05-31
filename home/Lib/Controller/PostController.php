@@ -14,7 +14,7 @@ class PostController extends CommonController
 			}
 			else 
 			{
-				$page = $page - 1;
+				
 			}
 			$this->assign('page',$page+1);
 		}	
