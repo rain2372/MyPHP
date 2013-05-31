@@ -21,12 +21,11 @@ include_once APP_PATH.'/Function/function.php';
 include_once MYPHP_PATH.'/Common/autoload.php';
 
 
-
 //定义网站根目录
-define('ROOT', '/MyPHP/');
+define('ROOT', C('ROOT'));
 
 //公共文件路径
-define('PUBLIC_PATH', ROOT.'Public/');
+define('PUBLIC_PATH', ROOT.C('PUBLIC_PATH'));
 
 //定义当前项目根目录，不含域名
 define('__APP__', Url::getScriptName());

@@ -12,7 +12,10 @@ return array(
 			'DATABASE' 	=> 'myphp',
 		),
 		
+		//安装根目录
+		'ROOT' => '/MyPHP/',
 		
-		
-		
+		//公共文件目录，默认相对于ROOT目录，一般不需要修改
+		'PUBLIC_PATH' => 'Public/',
+				
 );
