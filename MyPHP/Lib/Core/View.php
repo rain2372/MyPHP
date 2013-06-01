@@ -44,9 +44,9 @@ class View
 		{
 			$$key=$this->var[$key];
 		}
-		//设置include 路径
+		//设置include 路径，在模版页可以直接相对view文件夹包含文件
 		set_include_path(APP_VIEW_PATH);	
-		include_once APP_VIEW_PATH.$viewfile;
+		include_once APP_VIEW_PATH.$viewfile.'.php';
 		
 	}
 	

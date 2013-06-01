@@ -3,7 +3,7 @@ class LoginController extends CommonController
 {
 	public function index()
 	{
-		$this->display('Public/login.php');
+		$this->display('Public/login');
 	}
 	
 	public function login()

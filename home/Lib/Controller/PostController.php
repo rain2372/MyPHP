@@ -36,7 +36,7 @@ class PostController extends CommonController
 		$this->assign('post', $post);
 		
 		$this->getSider();
-		$this->display('Post/index.php');
+		$this->display('Post/index');
 		
 	}
 	
@@ -86,13 +86,13 @@ class PostController extends CommonController
 		
 		$this->getSider();
 			
-		$this->display('Post/search.php');
+		$this->display('Post/search');
 	}
 
 	public function newpost()
 	{
 		$this->checkPower();
-		$this->display('Post/newpost.php');
+		$this->display('Post/newpost');
 	}
 	
 	public function add()
@@ -146,7 +146,7 @@ class PostController extends CommonController
 		
 		$this->getSider();
 		
-		$this->display('Post/edit.php');
+		$this->display('Post/edit');
 	}
 	
 	public function update()

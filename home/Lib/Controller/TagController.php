@@ -24,7 +24,7 @@ class TagController extends CommonController
 		
 		$this->getSider();
 		$this->assign('post', $post);
-		$this->display('Tag/index.php');
+		$this->display('Tag/index');
 		 
 	}
 	public function page($page=null)
@@ -67,6 +67,6 @@ class TagController extends CommonController
 		
 		$this->getSider();
 		$this->assign('post', $post);
-		$this->display('Tag/index.php');
+		$this->display('Tag/index');
 	}
 }

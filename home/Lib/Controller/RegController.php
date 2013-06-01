@@ -9,7 +9,7 @@ class RegController extends CommonController
 		
 		$this->getSider();
 			
-		$this->display('Public/reg.php');
+		$this->display('Public/reg');
 	}
 	
 	public function reg()

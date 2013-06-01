@@ -42,7 +42,7 @@ class IndexController extends CommonController
 		}	
 		$this->assign('post', $post);
 		$this->getSider();
-		$this->display('Index/index.php');
+		$this->display('Index/index');
 		
 	}
 	

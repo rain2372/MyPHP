@@ -2,10 +2,11 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?php echo  isset($titlenow)?$titlenow.'——':'';?><?php echo $title ?></title>
 <link rel="stylesheet" href="<?php echo PUBLIC_PATH ?>bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php echo PUBLIC_PATH ?>style/style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link href="<?php echo PUBLIC_PATH ?>bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
 <script src="<?php echo PUBLIC_PATH ?>Jquery/jquery-1.9.1.min.js"></script>
 <script src="<?php echo PUBLIC_PATH ?>js/my.js"></script>

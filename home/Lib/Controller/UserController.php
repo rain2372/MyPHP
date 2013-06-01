@@ -10,7 +10,7 @@ class UserController extends CommonController
 		$uid = $_SESSION['uid'];
 		$user = $User->find($uid);
 		$this->assign('user', $user);
-		$this->display('User/index.php');
+		$this->display('User/index');
 		
 	}
 	
