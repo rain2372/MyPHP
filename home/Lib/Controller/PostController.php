@@ -5,23 +5,12 @@ class PostController extends CommonController
 	{
 		$this->getHeader();
 		$Post = M('Post');	
+
+		import('Page');
+		$Page = new Page($page);
+		$page = $Page->page;
 		
-		if(isset($page))
-		{
-			if($page<2)
-			{
-				$page = 1;
-			}
-			else 
-			{
-				
-			}
-			$this->assign('page',$page+1);
-		}	
-		else 
-		{
-			$this->assign('page', 1);
-		}
+		$this->assign('page',$page);
 		
 		try 
 		{
@@ -30,7 +19,7 @@ class PostController extends CommonController
 		catch(DbException $e)
 		{
 			$post = $Post->dbarray;
-			$this->assign('page', $page);		//阻止页码继续增大
+			$this->assign('page', $page-1);		//阻止页码继续增大
 		}
 		$this->assign('titlenow',$post['title']);
 		$this->assign('post', $post);
