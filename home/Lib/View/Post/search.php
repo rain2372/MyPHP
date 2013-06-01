@@ -17,10 +17,10 @@
 			<div id="pagenav">
 					<ul class="pager">
 						<li class="previous">
-							<a href="<?php createUrl('Post','search',isset($page)? $page-1:1);?>">Prev</a>
+							<a href="<?php createUrl('Post','search',$page-1);?>">Prev</a>
 						</li>
  						<li class="next">
- 							<a href="<?php createUrl('Post','search',isset($page)? $page+1:2);?>">Next</a>
+ 							<a href="<?php createUrl('Post','search',$page+1);?>">Next</a>
  						</li>
 					</ul>
 			</div>

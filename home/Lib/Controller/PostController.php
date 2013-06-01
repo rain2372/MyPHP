@@ -6,7 +6,8 @@ class PostController extends CommonController
 		$this->getHeader();
 		$Post = M('Post');	
 
-		import('Page');
+		import('Page');		//导入分页扩展
+		
 		$Page = new Page($page);
 		$page = $Page->page;
 		
@@ -39,27 +40,23 @@ class PostController extends CommonController
 		if(isset($_POST['search-key']))
 		{
 			$search_key = $_POST['search-key'];
-			$_SESSION['search-key'] = $search_key;
+			$_SESSION['search-key'] = $search_key;			//保存当前tag标签
 		}
 		else 
 		{
 			$search_key = $_SESSION['search-key'];
 		}
 		
-		if(isset($page))
-		{
-			if($page<0) 
-			{
-				$page=0;
-			}
-			$Post->limit($page*5,5);
-			$this->assign('page',$page);
-		}	
-		else 
-		{
-			$Post->limit(5);
-		}
+		import('Page');			//导入分页
+		
+		$Page = new Page($page);
+		$page = $Page->page;
+		
+		$this->assign('page',$page);
+		$Post->limit(($page-1)*5,5);
+		
 		$Post->where("`title` LIKE '%$search_key%' OR `content` LIKE '%$search_key%'");
+		
 		try 
 		{
 			$post = $Post->select();
@@ -71,6 +68,7 @@ class PostController extends CommonController
 			);
 			$this->assign('page', $page-1);
 		}
+		
 		$this->assign('post', $post);
 		
 		$this->getSider();

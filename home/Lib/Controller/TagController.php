@@ -10,6 +10,9 @@ class TagController extends CommonController
 		$_SESSION['tag'] = $tag;	//用session保存tag标签
 		
 		$Post = M('Post');
+		
+		$this->assign('page', 1);		//设置默认页
+		
 		try 
 		{
 			$post = $Post->where("`tag` LIKE '%$tag%'")->limit(5)->select();	
@@ -33,25 +36,14 @@ class TagController extends CommonController
 		
 		$tag = $_SESSION['tag'];
 		$Post = M('Post');
-		if(isset($page))
-		{
-			if($page<1)
-			{
-				$page=0;
-			}
-			else
-			{
-				$page = $page - 1;
-			}
-			$Post->limit($page*5,5);
-			$this->assign('page',$page+1);
-		}
-		else
-		{
-			$Post->limit(5);
-		}
 		
+		import('Page');
+		$Page = new Page($page);
+		$page = $Page->page;
 		
+		$this->assign('page',$page);	
+		$Post->limit(($page-1)*5,5);
+			
 		try
 		{
 			$post = $Post->where("`tag` LIKE '%$tag%'")->select();
@@ -62,7 +54,7 @@ class TagController extends CommonController
 						
 					$Post->dbarray,
 			);
-			$this->assign('page', $page);			//页码不能增大
+			$this->assign('page', $page-1);			//页码不能增大
 		}
 		
 		$this->getSider();

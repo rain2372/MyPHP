@@ -23,7 +23,7 @@
 				<div id="pagenav" class="pagination">
 					<ul>
 						<li><a href="<?php createUrl('Index','page',$page-1) ?>">Prev</a></li>
-						<li><a href="<?php createUrl('Index','page',$page) ?>"><?php echo isset($page)? $page:1;?></a></li>
+						<li><a href="<?php createUrl('Index','page',$page) ?>"><?php echo $page ?></a></li>
 						<li><a href="<?php createUrl('Index','page',$page+1) ?>">Next</a></li>
 					</ul>
 				</div>
