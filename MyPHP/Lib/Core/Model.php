@@ -178,6 +178,8 @@ class Model
 	{
 		$sql ="SELECT * FROM `$this->table`";
 		$sql .=$this->where;
+		$sql .=$this->orderby;
+		$sql .=$this->limit;
 		$result = self::$db->find($sql);
 	
 		if($result)
